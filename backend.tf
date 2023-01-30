@@ -8,10 +8,10 @@ terraform {
 }
 
 
-    #backend "s3" {
-       # encrypt = true
-       # bucket  = "mrodzhev-s3-bucket"
-        #region  = "eu-central-1"
-       # key     = "terraform.tfstate"
-    #}
-#}
+    backend "s3" {
+        encrypt = true
+        bucket  = "mrodzhev-s3-bucket"
+        region  = "eu-central-1"
+        key     = "terraform.tfstate"
+    }
+}
