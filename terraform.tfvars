@@ -24,3 +24,5 @@ git_trigger_event = "PUSH"
 branch_pattern = "^refs/heads/main$"
 
 name_container = "jackrussel"
+
+github_oauth_token = "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"
