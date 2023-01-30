@@ -28,31 +28,31 @@ module "initial-build" {
   
 }
 
-#module "ecs" {
- #source = "./modules/ecs"
- # region = var.region
- # cidr_block = "10.0.0.0/16"
- # app_name = var.app_name
-  #ecr_repository_url = module.ecr.ecr_repository_url
+module "ecs" {
+ source = "./modules/ecs"
+  region = var.region
+  cidr_block = "10.0.0.0/16"
+  app_name = var.app_name
+  ecr_repository_url = module.ecr.ecr_repository_url
 
-  #depends_on = [
-   # module.ecr, module.initial-build
-  #]
+  depends_on = [
+    module.ecr, module.initial-build
+  ]
   
-#}
+}
 
-#module "codebuild" {
-  #source = "./modules/codebuild"
-  #vpc_id = module.ecs.vpc_id
-  #subnets = module.ecs.private_subnet_ids
-  #branch_pattern = var.branch_pattern
-  #git_trigger_event = var.git_trigger_event
-  #github_oauth_token = var.github_oauth_token
-  #buildspec_file = "./config/buildspec.yml"
-  #repo_url = var.repo_url
+module "codebuild" {
+  source = "./modules/codebuild"
+  vpc_id = module.ecs.vpc_id
+  subnets = module.ecs.private_subnet_ids
+  branch_pattern = var.branch_pattern
+  git_trigger_event = var.git_trigger_event
+  github_oauth_token = var.github_oauth_token
+  buildspec_file = "./config/buildspec.yml"
+  repo_url = var.repo_url
   
-  #depends_on = [
-    #module.ecs, module.ecr
-  #
+  depends_on = [
+    module.ecs, module.ecr
   
-#}
+  
+}
