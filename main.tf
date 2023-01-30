@@ -53,6 +53,7 @@ module "codebuild" {
   
   depends_on = [
     module.ecs, module.ecr
+      ]
   
   
 }
