@@ -25,6 +25,6 @@ branch_pattern = "^refs/heads/main$"
 
 name_container = "jackrussel"
 
-github_oauth_token = ""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"
+
 
 
