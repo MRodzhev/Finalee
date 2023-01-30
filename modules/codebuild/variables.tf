@@ -1,6 +1,4 @@
 variable "github_oauth_token" {
-  type    = string
-  default = ""
 }
 
 variable "buildspec_file" {
