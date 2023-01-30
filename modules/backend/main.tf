@@ -7,12 +7,12 @@ resource "aws_s3_bucket" "s3-bucket" {
 }
 
 resource "aws_s3_bucket_acl" "s3bucketacl" {
-  bucket = aws_s3_bucket.s3_bucket.id
+  bucket = aws_s3_bucket.s3-bucket.id
   acl    = "private"
 }
 
 resource "aws_s3_bucket_versioning" "s3bucketvers" {
-  bucket = aws_s3_bucket.s3_bucket.id
+  bucket = aws_s3_bucket.s3-bucket.id
   versioning_configuration {
     status = "Enabled"
   }
