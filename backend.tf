@@ -14,4 +14,4 @@ terraform {
         region  = "eu-central-1"
         key     = "terraform.tfstate"
     }
-}
+
