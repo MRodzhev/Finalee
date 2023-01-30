@@ -3,5 +3,5 @@
 .terraform.tfstate.lock.info
 .terraform.lock.hcl
 secret.tfvars
-terraform.tfvars
+
 
