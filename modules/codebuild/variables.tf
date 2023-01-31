@@ -1,11 +1,6 @@
 variable "github_oauth_token" {
 }
 
-variable "allowed_ports" {
-  type    = list(number)
-  #default = [22, 80, 443, 5000]
-}
-
 variable "buildspec_file" {
 
   default = "config/buildspec.yml"
