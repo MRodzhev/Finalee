@@ -57,6 +57,7 @@ variable "branch_pattern" {
 }
 
 variable "github_oauth_token" {
+  type = string
   
 }
   
