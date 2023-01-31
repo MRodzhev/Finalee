@@ -3,7 +3,7 @@ provider "aws" {
   region = var.region
 }
  
-module "s3_terraform_state" {
+module "backend" {
   source      = "./modules/backend"
   bucket_name = var.bucket_name
 }
