@@ -27,13 +27,13 @@ phases:
     commands:
       - echo "Build and push docker images"
       - cd "${CODEBUILD_SRC_DIR}/app"
-      - export image_tag="0.0.1"
-      - echo "Building version ${image_tag}"
+      - export TAG="${IMAGE_TAG}-${ENV}"
+      - echo "Building version ${TAG}"
       - make build
 
       - cd ${CODEBUILD_SRC_DIR}
       - terraform init 
-      - terraform plan -target=module.ecs --var-file="./terraform.tfvars" -var="image_tag=0.0.1" -no-color -input=false -out plan.out
+      - terraform plan -target=module.ecs --var-file="./terraform.tfvars" -var="image_tag=${TAG}" -no-color -input=false -out plan.out
       - terraform apply -auto-approve -no-color -input=false plan.out
 
   post_build:
@@ -41,13 +41,13 @@ phases:
       - |
         if [ $CODEBUILD_BUILD_SUCCEEDING != 0 ]; then
           NEWTAG=''
-          while [ "${NEW_TAG}" != "${image_tag}" ];
+          while [ "${NEW_TAG}" != "${TAG}" ];
           do
             NEW_SERVICE_ARN=$(aws ecs list-services --cluster Cluster | jq -r .serviceArns[])
             NEW_TASKDEF_ARN=$(aws ecs describe-services --cluster Cluster --service ${NEW_SERVICE_ARN} | jq -r .services[].taskDefinition)
             NEW_TAG=$(aws ecs describe-task-definition --task-definition ${NEW_TASKDEF_ARN} | jq -r .taskDefinition.containerDefinitions[].image | tr ':' ' ' | awk '{print $2}')
-            echo "Waiting until new image started... Tag: ${image_tag} New tag: ${NEW_TAG}"
-            if [ "${NEW_TAG}" != ${image_tag} ]; then
+            echo "Waiting until new image started... Tag: ${TAG} New tag: ${NEW_TAG}"
+            if [ "${NEW_TAG}" != ${TAG} ]; then
               sleep 10
             fi
           done
