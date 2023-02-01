@@ -15,7 +15,7 @@ phases:
       - curl -sSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip
       - unzip terraform.zip -d /usr/local/bin && chmod +x /usr/local/bin/terraform
       - export REGISTRY_ID=`aws sts get-caller-identity --output text | awk '{print $1}'`
-      - export REPO_NAME="${REGISTRY_ID}.dkr.ecr.${REPOSITORY_REGION}.amazonaws.com/${APP_NAME}-${ENV}-${NAME_CONTAINER}"
+      - export REPO_NAME="${REGISTRY_ID}.dkr.ecr.${REPOSITORY_REGION}.amazonaws.com/${APP_NAME}-${ENV}"
       - pip install jq
       - echo "Getting existing tag"
       - export SERVICE_ARN=$(aws ecs list-services --cluster Cluster | jq -r .serviceArns[])
