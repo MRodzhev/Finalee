@@ -11,6 +11,7 @@ env:
 phases:
   pre_build:
     commands:
+      - aws sts get-caller-identity --output text
       - curl -sSL "https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform_${TERRAFORM_VERSION}_linux_amd64.zip" -o terraform.zip
       - unzip terraform.zip -d /usr/local/bin && chmod +x /usr/local/bin/terraform
       - export REGISTRY_ID=`aws sts get-caller-identity --output text | awk '{print $1}'`
