@@ -77,7 +77,6 @@ variable "ecr_repository_url" {
 }
 
 variable "image_tag" {
-  default = "0.0.1"
   type = string
   
 }
