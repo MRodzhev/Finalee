@@ -4,6 +4,7 @@ app = Flask(__name__)
 # list of cat images
 images = [
   "https://tenor.com/view/jack-russell-jack-russell-terrier-jack-russell-gif-13114603"
+  "https://tenor.com/view/cute-adorable-doggo-puppy-grin-gif-24799385"
 ]
 @app.route('/')
 def index():
