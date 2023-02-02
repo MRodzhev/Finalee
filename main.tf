@@ -34,6 +34,7 @@ module "ecs" {
   cidr_block = "10.0.0.0/16"
   app_name = var.app_name
   ecr_repository_url = module.ecr.ecr_repository_url
+  image_tag = var.image_tag
 
   depends_on = [
     module.ecr, module.initial-build
