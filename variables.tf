@@ -31,7 +31,6 @@ variable "cidr_block" {
 }
 
 variable "image_tag" {
-  default = "0.0.1"
   type = string
   
 }
