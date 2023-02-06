@@ -77,4 +77,5 @@ terraform apply --var-file=./config/project.tfvars --auto-approve
 
 Check results:
 Go to your AWS account and check created infrastructure resources
+
 Go to the DNS name created Application Load Balancer and check an information on a web page
