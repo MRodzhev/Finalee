@@ -22,12 +22,12 @@ The "Finalee" repository contains:
 - Terraform project
 - Web application
 - Root Terraform module
-- Terraform modules:
-  Backend: Stores a Terraform state file, containing the code
-  Elastic container registry: Creates an Elastic container registry (ECR) repository to store Docker images
-  Initial-build: Builds and pushes initial Docker image to ECR repository
-  ECS cluster: Creates a VPC and a ECS cluster
-  Codebuild: Creates a Codebuild project
+- Terraform modules: 
+  Backend: Stores a Terraform state file, containing the code.
+  Elastic container registry: Creates an Elastic container registry (ECR) repository to store Docker images.
+  Initial-build: Builds and pushes initial Docker image to ECR repository.
+  ECS cluster: Creates a VPC and a ECS cluster.
+  Codebuild: Creates a Codebuild project.
  
  
  FILES and FOLDERS:
