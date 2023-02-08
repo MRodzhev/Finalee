@@ -8,9 +8,9 @@ For reaching this goal, I used the following tools:
 - Docker
 
 GOALS:
-- Maximal automation ✅
-- Minimal hard-coding ✅
-- Optimal workflow of the infrastructure ✅
+- Maximal automation 
+- Minimal hard-coding 
+- Optimal workflow of the infrastructure 
 
 DESCRIPTION:
 This solution was created to demonstrate the deployment of a web application in a Docker container.
@@ -23,9 +23,9 @@ The "Finalee" repository contains:
 - Web application
 - Root Terraform module
 - Terraform modules:
- > S3 Terraform state: Stores a Terraform state file, containing the code
+ > Backend: Stores a Terraform state file, containing the code
  > Elastic container registry: Creates an Elastic container registry (ECR) repository to store Docker images
- > Initial build: Builds and pushes initial Docker image to ECR repository
+ > Initial-build: Builds and pushes initial Docker image to ECR repository
  > ECS cluster: Creates a VPC and a ECS cluster
  > Codebuild: Creates a Codebuild project
  
@@ -35,7 +35,7 @@ The "Finalee" repository contains:
 Dockerfile - special file, containing script of instructions, to build Docker image
 Makefile - special file, containing shell commands, to build and push Docker image to ECR repository
 / - root Terraform module
-./config - configuration directory
+./config - configuration directory for buildspec.yml file
 terraform.tfvars - Contains variable values for development environment (git branch "main")
 secret.tfvars - Contains secrets (Github token) for Github repository (not presented in the repo)
 buildspec.yml - Build SPEC for AWS Codebuild
@@ -67,13 +67,13 @@ aws_access_key_id = YOUR AWS ACCESS KEY ID
 aws_secret_access_key = YOUR AWS SECRET ACCESS KEY
 
 Steps:
-Comment backend "s3" in ./terraform/backend.tf file
+Comment backend "" in ./terraform/backend.tf file
 terraform init
 terraform apply -target=module.s3_terraform_state --var-file=./config/project.tfvars
 
 Uncomment backend "s3" in ./terraform/backend.tf file
 terraform init
-terraform apply --var-file=./config/project.tfvars --auto-approve
+terraform apply --var-file=./config/terraform.tfvars --auto-approve
 
 Check results:
 Go to your AWS account and check created infrastructure resources
