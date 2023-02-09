@@ -67,13 +67,13 @@ aws_access_key_id = YOUR AWS ACCESS KEY ID
 aws_secret_access_key = YOUR AWS SECRET ACCESS KEY
 
 Steps:
-Comment backend "" in ./terraform/backend.tf file
+Comment backend "s3" in ./terraform/backend.tf file
 terraform init
-terraform apply -target=module.s3_terraform_state --var-file=./config/project.tfvars
+terraform apply 
 
 Uncomment backend "s3" in ./terraform/backend.tf file
 terraform init
-terraform apply --var-file=./config/terraform.tfvars --auto-approve
+terraform apply
 
 Check results:
 Go to your AWS account and check created infrastructure resources
