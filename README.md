@@ -57,7 +57,7 @@ Preparation:
 - Install Terraform, AWS CLI and Docker
 - Create Github token
 - Create secret.tfvars and add next content "github_oauth_token = YOUR GITHUB TOKEN"
-- Make correct changes of variable values in *.tfvars
+- Make correct changes of variable values in terraform.tfvars
 
 DEPLOYMENT:
 
