@@ -14,7 +14,7 @@ GOALS:
 
 DESCRIPTION:
 This solution was created to demonstrate the deployment of a web application in a Docker container.
-It was built using Terraform by an AWS cloud infrastructure based on "Infrastructure as a Code".
+It was built using "Infrastructure as Code" tool, precisely HashiCorp`s Terraform
 It contains a web application, Terraform modules, root Terraform modules, and configuration files to create an infrastructure.
 
 The "Finalee" repository contains:
