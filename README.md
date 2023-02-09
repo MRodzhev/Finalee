@@ -68,16 +68,19 @@ aws_secret_access_key = YOUR AWS SECRET ACCESS KEY
 
 Steps:
 Comment backend "s3" in ./terraform/backend.tf file
+Comment modules "ecs" and "codebuild? in main.tf file
 terraform init
 terraform apply 
 
 Uncomment backend "s3" in ./terraform/backend.tf file
+Uncomment modules "ecs" and "codebuild" in main.tf file
+When Terraform ask you to merge S3 Bucket states, reply with Yes
 terraform init
 terraform apply
 
 Check results:
 Go to your AWS account and check created infrastructure resources
 
-Go to the DNS name created Application Load Balancer and check an information on a web page
+Go to AWS Console, EC2 panel and choose Load Balancer, copy the DNS name and paste it to the web browser. Finally check the information of the a web page.
 
 ![ProjectFinal](https://user-images.githubusercontent.com/106818714/217793761-91d3f220-8525-4dac-a53e-fc8846807bd7.png)
