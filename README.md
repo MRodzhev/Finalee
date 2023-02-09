@@ -8,21 +8,21 @@ For reaching this goal, I used the following tools:
 - Docker
 
 GOALS:
-- Maximal automation 
-- Minimal hard-coding 
-- Optimal workflow of the infrastructure 
+- Maximising automation in order to reduce human-made mistakes.
+- Minimalizing the hard-coding in my code. 
+- Optimazing the workflow of the infrastructure.
 
 DESCRIPTION:
 This solution was created to demonstrate the deployment of a web application in a Docker container.
-It was built using "Infrastructure as Code" tool, precisely HashiCorp`s Terraform
+It was built using "Infrastructure as Code" tool, precisely HashiCorp`s Terraform.
 It contains a web application, Terraform modules, root Terraform modules, and configuration files to create an infrastructure.
 
 The "Finalee" repository contains:
 
 - Terraform project
 - Web application
-- Root Terraform module
-- Terraform modules: 
+- Top-level(root) Terraform module
+- Terraform child modules: 
   Backend: Stores a Terraform state file, containing the code.
   Elastic container registry: Creates an Elastic container registry (ECR) repository to store Docker images.
   Initial-build: Builds and pushes initial Docker image to ECR repository.
@@ -36,10 +36,10 @@ Dockerfile - special file, containing script of instructions, to build Docker im
 Makefile - special file, containing shell commands, to build and push Docker image to ECR repository
 / - root Terraform module
 ./config - configuration directory for buildspec.yml file
-terraform.tfvars - Contains variable values for development environment (git branch "main")
-secret.tfvars - Contains secrets (Github token) for Github repository (not presented in the repo)
+terraform.tfvars - Contains variable values for your environment (git branch "main")
+secret.tfvars - Contains secrets (Github token) for Github repository (not presented in the repo, ignored by .gitignore file)
 buildspec.yml - Build SPEC for AWS Codebuild
-backend.tf - Terraform configuration
+backend.tf - Terraform code state saved in S3 Bucket
 variables.tf - Terraform variables
 main.tf - Terraform main file
 /modules - Terraform modules
