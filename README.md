@@ -79,3 +79,5 @@ Check results:
 Go to your AWS account and check created infrastructure resources
 
 Go to the DNS name created Application Load Balancer and check an information on a web page
+
+![ProjectFinal](https://user-images.githubusercontent.com/106818714/217793761-91d3f220-8525-4dac-a53e-fc8846807bd7.png)
