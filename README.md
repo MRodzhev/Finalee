@@ -62,9 +62,9 @@ Preparation:
 DEPLOYMENT:
 
 Initial step:
-Add AWS AIM user credentials to ~/.aws/credentials[default]
-aws_access_key_id = YOUR AWS ACCESS KEY ID
-aws_secret_access_key = YOUR AWS SECRET ACCESS KEY
+Add AWS AIM user credentials as varaibles
+export aws_access_key_id = YOUR AWS ACCESS KEY ID
+export aws_secret_access_key = YOUR AWS SECRET ACCESS KEY
 
 Steps:
 Comment backend "s3" in ./terraform/backend.tf file
